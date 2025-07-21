@@ -12,7 +12,8 @@ module.exports = {
         foreground: "var(--foreground)",
       },
       fontFamily: {
-        'handwritten': ['var(--font-caveat)', 'cursive'],
+        'handwritten': ['var(--font-kalam)', 'cursive'],
+        'gloria': ['var(--font-gloria-hallelujah)', 'cursive'],
       },
     },
   },

@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
-import { Inter, Caveat } from "next/font/google";
+import { Inter, Kalam, Gloria_Hallelujah } from "next/font/google";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-const caveat = Caveat({ 
-  weight: ['400', '500', '600', '700'],
+const kalam = Kalam({ 
+  weight: ['300', '400', '700'],
   subsets: ["latin"],
-  variable: '--font-caveat'
+  variable: '--font-kalam'
+});
+const gloriaHallelujah = Gloria_Hallelujah({ 
+  weight: ['400'],
+  subsets: ["latin"],
+  variable: '--font-gloria-hallelujah'
 });
 
 export const metadata: Metadata = {
@@ -21,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} ${caveat.variable}`}>
+      <body className={`${inter.className} ${kalam.variable} ${gloriaHallelujah.variable}`}>
         {children}
       </body>
     </html>

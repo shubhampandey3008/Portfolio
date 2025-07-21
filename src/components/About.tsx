@@ -6,6 +6,8 @@ import { annotate } from 'rough-notation';
 export default function About() {
   const [showProfessional, setShowProfessional] = useState(false);
   const resumeRef = useRef(null);
+  const whoAmIRef = useRef(null);
+  const currentAnnotation = useRef<any>(null);
 
   const journeyItems = [
     {
@@ -67,9 +69,25 @@ export default function About() {
     }
   ];
 
-  // Trigger underline animation on mount
+  // Trigger underline animation on mount and toggle change
   useEffect(() => {
-    if (resumeRef.current) {
+    // Remove previous annotation if it exists
+    if (currentAnnotation.current) {
+      currentAnnotation.current.hide();
+      currentAnnotation.current = null;
+    }
+
+    // Add new annotation based on current state
+    if (showProfessional && whoAmIRef.current) {
+      const annotation = annotate(whoAmIRef.current, {
+        type: 'underline',
+        color: '#c2410c', // Tailwind red-800 equivalent
+        animationDuration: 1500,
+        padding: 2
+      });
+      annotation.show();
+      currentAnnotation.current = annotation;
+    } else if (!showProfessional && resumeRef.current) {
       const annotation = annotate(resumeRef.current, {
         type: 'underline',
         color: '#c2410c', // Tailwind red-800 equivalent
@@ -77,47 +95,54 @@ export default function About() {
         padding: 2
       });
       annotation.show();
+      currentAnnotation.current = annotation;
     }
-  }, []);
+  }, [showProfessional]);
 
   return (
     <div className="max-w-4xl mx-auto">
       {/* Profile Section */}
-      <div className="flex items-start space-x-6 mb-8">
-        <div className="w-24 h-24 relative">
-          <div className="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center">
-            <span className="text-3xl">👤</span>
+      <div className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 mb-8">
+        <div className="w-20 h-20 sm:w-24 sm:h-24 mx-auto sm:mx-0 flex-shrink-0">
+          <div className="w-full h-full rounded-full bg-gray-200 flex items-center justify-center">
+            <span className="text-2xl sm:text-3xl">👤</span>
           </div>
         </div>
-        <div className="flex-1">
-          <h1 className="text-3xl font-bold text-black mb-2">janvi kalra</h1>
-          <p className="text-gray-600 mb-4">engineer by passion, debater by nature, struggling writer by choice</p>
+        
+        <div className="flex-1 text-center sm:text-left">
+          <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2">janvi kalra</h1>
+          <p className="text-gray-600 mb-4 text-sm sm:text-base">engineer by passion, debater by nature, struggling writer by choice</p>
           
           {/* Social Links */}
-          <div className="flex space-x-4">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4">
             <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" 
-               className="text-gray-600 hover:text-black transition-colors">
+               className="text-gray-600 hover:text-black transition-colors text-sm sm:text-base">
               LinkedIn
             </a>
             <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" 
-               className="text-gray-600 hover:text-black transition-colors">
+               className="text-gray-600 hover:text-black transition-colors text-sm sm:text-base">
               X
             </a>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
-               className="text-gray-600 hover:text-black transition-colors">
+               className="text-gray-600 hover:text-black transition-colors text-sm sm:text-base">
               GitHub
             </a>
             <a href="https://substack.com" target="_blank" rel="noopener noreferrer" 
-               className="text-gray-600 hover:text-black transition-colors">
+               className="text-gray-600 hover:text-black transition-colors text-sm sm:text-base">
               Substack
             </a>
           </div>
         </div>
         
         {/* Toggle Switch */}
-        <div className="ml-auto flex items-center space-x-3">
-          <span className="text-gray-600 font-handwritten text-[25px]">
-            idc, <span ref={resumeRef} className="text-orange-700">resume</span> please</span>
+        <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-3 w-full sm:w-auto mt-4 sm:mt-0">
+          <span className="text-gray-600 font-handwritten text-lg sm:text-[20px] text-center sm:text-right">
+            {showProfessional ? (
+              <>But, <span ref={whoAmIRef} className="text-orange-700">who am I</span> really? -&gt;</>
+            ) : (
+              <>idc, <span ref={resumeRef} className="text-orange-700">resume</span> please -&gt;</>
+            )}
+          </span>
           <div className="relative">
             <input
               type="checkbox"
@@ -148,17 +173,17 @@ export default function About() {
         {showProfessional ? (
           // Professional Experience
           <div>
-            <h2 className="text-2xl font-bold mb-6">Professional Experience</h2>
+            <h2 className="text-xl sm:text-2xl font-bold mb-6">Professional Experience</h2>
             <div className="space-y-4">
               {professionalItems.map((item, index) => (
                 <div key={index} className="border-l-2 border-gray-200 pl-4">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="font-semibold text-lg">{item.title}</h3>
-                      <p className="text-gray-600">{item.company}</p>
+                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start space-y-2 sm:space-y-0">
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-base sm:text-lg">{item.title}</h3>
+                      <p className="text-gray-600 text-sm sm:text-base">{item.company}</p>
                       <p className="text-sm text-gray-500 mt-1">{item.description}</p>
                     </div>
-                    <span className="text-sm text-gray-500">{item.period}</span>
+                    <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0">{item.period}</span>
                   </div>
                 </div>
               ))}
@@ -171,18 +196,18 @@ export default function About() {
               {journeyItems.map((item, index) => (
                 <details key={index} className="group">
                   <summary className="cursor-pointer list-none">
-                    <div className="flex items-center space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors">
-                      <span className="text-xl">{item.emoji}</span>
-                      <div>
-                        <h3 className="font-semibold text-lg text-black group-open:text-gray-600">
+                    <div className="flex items-start space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors">
+                      <span className="text-lg sm:text-xl flex-shrink-0 mt-1">{item.emoji}</span>
+                      <div className="flex-1 min-w-0">
+                        <h3 className="font-semibold text-base sm:text-lg text-black group-open:text-gray-600 group-hover:text-green-600 break-words">
                           {item.title}
                         </h3>
-                        <p className="text-gray-600 text-sm">{item.description}</p>
+                        <p className="text-gray-600 text-sm break-words">{item.description}</p>
                       </div>
                     </div>
                   </summary>
-                  <div className="mt-3 ml-8 p-4 bg-gray-50 rounded-lg">
-                    <p className="text-gray-700">{item.details}</p>
+                  <div className="mt-3 ml-6 sm:ml-8 p-4 bg-gray-50 rounded-lg">
+                    <p className="text-gray-700 text-sm sm:text-base">{item.details}</p>
                   </div>
                 </details>
               ))}

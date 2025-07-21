@@ -46,30 +46,30 @@ export default function Built() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="mb-8">
-        <p className="text-gray-700 text-lg leading-relaxed">
+      <div className="mb-6 sm:mb-8">
+        <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
           Building software make me feel like I can solve any problem I want. It's empowering. I'm driven by the 
           potential impact of what I create: how many people will benefit, how useful is it, or how much revenue it can generate. I 
           love spending my nights and weekends tinkering, and these are some of my favorite creations:
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {projects.map((project, index) => (
           <a
             key={index}
             href={project.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group hover:bg-gray-50 p-4 rounded-lg transition-colors border border-transparent hover:border-gray-200"
+            className="block group hover:bg-gray-50 p-3 sm:p-4 rounded-lg transition-colors border border-transparent hover:border-gray-200"
           >
-            <div className="flex items-start space-x-4">
-              <span className="text-2xl flex-shrink-0 mt-1">{project.emoji}</span>
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-black group-hover:text-gray-700 mb-2">
+            <div className="flex items-start space-x-3 sm:space-x-4">
+              <span className="text-xl sm:text-2xl flex-shrink-0 mt-1">{project.emoji}</span>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-base sm:text-lg text-black group-hover:text-gray-700 mb-2 group-hover:text-green-600 break-words">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed text-sm sm:text-base break-words">
                   {project.description}
                 </p>
               </div>

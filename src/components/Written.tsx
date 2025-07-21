@@ -58,8 +58,8 @@ export default function Written() {
 
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="mb-8">
-        <p className="text-gray-700 text-lg leading-relaxed">
+      <div className="mb-6 sm:mb-8">
+        <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
           Rhetoric has always been part of my life, just in different forms. Back in high school, I'd spend 
           weeknights buried in STEM homework, and then weekends at debate tournaments. In college, when my brain was fried 
           from debugging, I'd unwind with Nick Bostrom - and sometimes Kant if I was feeling particularly masochistic. These days, 
@@ -68,27 +68,27 @@ export default function Written() {
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {blogPosts.map((post, index) => (
           <a
             key={index}
             href={post.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group hover:bg-gray-50 p-4 rounded-lg transition-colors"
+            className="block group hover:bg-gray-50 p-3 sm:p-4 rounded-lg transition-colors"
           >
-            <div className="flex justify-between items-start">
-              <div className="flex-1">
-                <h3 className="font-semibold text-lg text-black group-hover:text-gray-700 mb-1">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start space-y-2 sm:space-y-0">
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold text-base sm:text-lg text-black group-hover:text-gray-700 mb-1 group-hover:text-green-600 break-words">
                   {post.title}
                 </h3>
                 {post.subtitle && (
-                  <p className="text-gray-600 text-sm mb-2">
+                  <p className="text-gray-600 text-xs sm:text-sm mb-2 break-words">
                     {post.subtitle}
                   </p>
                 )}
               </div>
-              <span className="text-gray-500 text-sm font-medium ml-4 flex-shrink-0">
+              <span className="text-gray-500 text-xs sm:text-sm font-medium sm:ml-4 flex-shrink-0 self-start">
                 {post.year}
               </span>
             </div>
