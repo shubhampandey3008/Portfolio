@@ -39,38 +39,72 @@ export default function About() {
     {
       title: 'Now',
       emoji: '📍',
-      description: 'Building AGI with phenomenal teammates.',
-      details: 'Writing about the journey: sharing what I read and learn. Angel investing in AI startups.'
+      description: 'Software Engineer at Ciena | AI Enthusiast | Tech Writer',
+      details: [
+        'Transitioned to Ciena as a Python Developer, focusing on Resource Adapters for leading global networking firms',
+        'Developing scalable solutions that power critical network infrastructure worldwide',
+        'Actively staying at the forefront of AI developments and emerging technologies',
+        'Sharing insights and learnings through technical writing and community engagement',
+        'Building AI-powered solutions while maintaining a keen eye on industry trends'
+      ]
     },
     {
-      title: 'AGI Pilled',
-      emoji: '🧠',
-      description: 'joining the technical trenches of the intelligence revolution',
-      details: 'Exploring the frontiers of artificial general intelligence and contributing to cutting-edge research.'
+      title: 'Joined an NGO as a founding member which became my second home',
+      emoji: '❤️',
+      description: 'Founding Member at Kritansh School of Hope',
+      details: [
+        'What began as a 3-month internship evolved into a life-changing journey at <a href="https://www.instagram.com/kritanshschoolofhope/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Kritansh School of Hope</a>',
+        'Dedicated weekends to teaching underprivileged children, making education accessible and engaging',
+        'Organized and led donation drives that positively impacted over 250 children across the city',
+        'Built lifelong friendships and discovered the joy of giving back to the community',
+        'Embarked on meaningful trips across the country, creating memories while serving others',
+        'Found my second family at Kritansh, where compassion meets action'
+      ]
     },
     {
-      title: 'Learning to adult at Silicon Valley Startups',
+      title: 'Masters in Computer Science paved way to my first job',
       emoji: '🎓',
-      description: 'searching for my ikigai by reading, writing, and coding',
-      details: 'Navigating the startup ecosystem while developing technical and leadership skills.'
+      description: 'MCA from JNU | First Professional Role at Hughes Systique',
+      details: [
+        'Cleared competitive entrance exams to join the prestigious Jawaharlal Nehru University',
+        'Learned from distinguished professors and developed a passion for Natural Language Processing',
+        'Created an innovative sentiment analysis project analyzing my class\'s WhatsApp group conversations',
+        'Secured internship and first job at Hughes Systique, marking the beginning of my professional journey',
+        'Became the founding member of the company\'s AI team, pioneering artificial intelligence initiatives',
+        'Led the development of the company\'s first AI Assistant, revolutionizing internal operations',
+        'Won multiple <a href="http://www.drive.com/awards" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">awards</a> for innovative product demonstrations and technical excellence',
+        'Single-handedly built an end-to-end Document Management System using Azure AI and Power Platform',
+        'Implemented advanced RAG techniques and developed robust data preprocessing pipelines'
+      ]
     },
     {
-      title: 'Left home for college in the middle-of-nowhere New Hampshire',
-      emoji: '🌲',
-      description: 'fell in love with computer science, wrote papers about the singularity, and made life long friends',
-      details: 'Discovered passion for technology and formed lasting relationships in an academic environment.'
+      title: 'Moved to a competitive University in Delhi',
+      emoji: '🏛️',
+      description: 'Bachelor\'s from University of Delhi | Personal & Academic Growth',
+      details: [
+        'Embarked on my Computer Science journey at the prestigious University of Delhi',
+        'Actively participated in networking events, expanding my professional connections',
+        'Organized various activities and attended industry conferences, building leadership skills',
+        'Competed in hackathons, pushing the boundaries of innovation and creativity',
+        'Formed lasting friendships through vibrant hostel life and shared experiences',
+        'Achieved success in the university cricket championship, balancing academics with sports',
+        'Adapted to online learning during COVID-19, though missing the full college experience',
+        'Developed resilience and adaptability that would serve me throughout my career'
+      ]
     },
     {
-      title: 'Moved to a competitive high school in Singapore',
-      emoji: '🇸🇬',
-      description: 'building back stronger by finding my voice as a debater',
-      details: 'Developed critical thinking and communication skills through competitive debate.'
-    },
-    {
-      title: 'Indian kid growing up in Shanghai',
-      emoji: '🇮🇳',
-      description: 'cross-cultural childhood anchored by family',
-      details: 'Experiencing diverse cultures while maintaining strong family connections and values.'
+      title: 'Born and Brought up in Himalayas',
+      emoji: '🏔️',
+      description: 'Rooted in Kumaoni Culture | Himalayan Heritage',
+      details: [
+        'Born and raised in Pithoragarh, a picturesque Himalayan town surrounded by natural beauty',
+        'Deeply rooted in rich Kumaoni traditions and cultural heritage',
+        'Grew up surrounded by the majestic mountains that instilled humility and perspective',
+        'Sports played a pivotal role in my childhood, teaching teamwork and perseverance',
+        'Raised in a humble middle-class family that emphasized values over material possessions',
+        'The mountains taught me to dream big while staying grounded in reality',
+        'This foundation shaped my worldview and approach to life\'s challenges'
+      ]
     }
   ];
 
@@ -242,7 +276,14 @@ export default function About() {
                     </div>
                   </summary>
                   <div className="mt-3 ml-6 sm:ml-8 p-4 bg-gray-50 rounded-lg">
-                    <p className="text-gray-700 text-sm sm:text-base">{item.details}</p>
+                    <ul className="space-y-2">
+                      {item.details.map((detail, detailIndex) => (
+                        <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
+                          <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
+                          <span dangerouslySetInnerHTML={{ __html: detail }} />
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 </details>
               ))}
