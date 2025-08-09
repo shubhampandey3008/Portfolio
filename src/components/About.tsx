@@ -31,9 +31,17 @@ const SubstackIcon = () => (
 
 export default function About() {
   const [showProfessional, setShowProfessional] = useState(false);
+  const [openSections, setOpenSections] = useState<{[key: string]: boolean}>({});
   const resumeRef = useRef(null);
   const whoAmIRef = useRef(null);
   const currentAnnotation = useRef<any>(null);
+
+  const toggleSection = (sectionId: string) => {
+    setOpenSections(prev => ({
+      ...prev,
+      [sectionId]: !prev[sectionId]
+    }));
+  };
 
   const journeyItems = [
     {
@@ -110,22 +118,76 @@ export default function About() {
 
   const professionalItems = [
     {
-      title: 'Senior Software Engineer',
-      company: 'Tech Startup',
-      period: '2023 - Present',
-      description: 'Leading development of AI-powered features'
+      title: 'Software Engineer 1B - RA Team',
+      company: 'Ciena',
+      period: 'Mar 2025 - Present',
+      description: 'Python Developer working on Resource Adapters powering global network infrastructure',
+      logoSrc: '/ciena.png', // replace with your company logo in `public/`
+      details: [
+        'Designing and building robust Resource Adapters used by large networking firms',
+        'Improving reliability and maintainability of critical backend services',
+        'Collaborating cross-functionally to deliver production-grade features'
+      ]
     },
     {
-      title: 'Software Engineer',
-      company: 'Previous Company',
-      period: '2021 - 2023',
-      description: 'Full-stack development and architecture design'
+      title: 'Associate Software Engineer - AI Team',
+      company: 'Hughes Systique',
+      period: 'July 2023 - Feb 2025',
+      description: 'Founding member of internal AI team; shipped company-wide AI Assistant',
+      logoSrc: '/Hughes-Systique.png', // replace with your company logo in `public/`
+      details: [
+        'Built an end-to-end Document Management System using Azure AI + Power Platform',
+        'Implemented RAG pipelines, data preprocessing, and robust evaluation suites',
+        'Won multiple awards for live product demos and engineering excellence'
+      ]
     },
     {
-      title: 'Computer Science Degree',
-      company: 'University',
-      period: '2017 - 2021',
-      description: 'Graduated with honors, focus on AI and machine learning'
+      title: 'Software Engineer Intern - AI Team',
+      company: 'Hughes Systique',
+      period: 'Jan 2023 - June 2023',
+      description: 'Founding member of internal AI team; shipped company-wide AI Assistant',
+      logoSrc: '/Hughes-Systique.png', // replace with your company logo in `public/`
+      details: [
+        'Built an end-to-end Document Management System using Azure AI + Power Platform',
+        'Implemented RAG pipelines, data preprocessing, and robust evaluation suites',
+        'Won multiple awards for live product demos and engineering excellence'
+      ]
+    }
+  ];
+
+  const educationItems = [
+    {
+      degree: 'MCA — Master of Computer Applications',
+      institution: 'Jawaharlal Nehru University (JNU)',
+      period: '2020 - 2022',
+      logoSrc: '/jnu.png', // replace with your university logo in `public/`
+      details: [
+        'Focused on NLP; built a WhatsApp sentiment analysis project',
+        'Secured internship and first role via campus placement'
+      ]
+    },
+    {
+      degree: "Bachelor's — Computer Science",
+      institution: 'University of Delhi',
+      period: '2017 - 2020',
+      logoSrc: '/DU.png', // replace with your university logo in `public/`
+      details: [
+        'Active in clubs, hackathons, and community initiatives',
+        'Balanced academics with sports and leadership activities'
+      ]
+    }
+  ];
+
+  const awardsItems = [
+    {
+      name: 'Innovation Award',
+      issuer: 'Hughes Systique',
+      year: '2023',
+      logoSrc: '/file.svg', // replace with award/issuer mark in `public/`
+      details: [
+        'Recognized for building the first internal AI Assistant and live demos',
+        'Awarded for technical excellence and business impact'
+      ]
     }
   ];
 
@@ -240,53 +302,195 @@ export default function About() {
       {/* Content Section */}
       <div className="space-y-6">
         {showProfessional ? (
-          // Professional Experience
-          <div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-6">Professional Experience</h2>
-            <div className="space-y-4">
-              {professionalItems.map((item, index) => (
-                <div key={index} className="border-l-2 border-gray-200 pl-4">
-                  <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start space-y-2 sm:space-y-0">
-                    <div className="flex-1">
-                      <h3 className="font-semibold text-base sm:text-lg">{item.title}</h3>
-                      <p className="text-gray-600 text-sm sm:text-base">{item.company}</p>
-                      <p className="text-sm text-gray-500 mt-1">{item.description}</p>
+          <div className="space-y-10">
+            {/* Professional Experience */}
+            <section>
+              <h2 className="text-xl sm:text-2xl font-bold mb-6">Professional Experience</h2>
+              <div className="space-y-4">
+                {professionalItems.map((item, index) => {
+                  const sectionId = `professional-${index}`;
+                  const isOpen = openSections[sectionId];
+                  return (
+                    <div key={index} className="border-l-2 border-gray-200 pl-4">
+                      <div 
+                        className="cursor-pointer"
+                        onClick={() => toggleSection(sectionId)}
+                      >
+                        <div className={`flex items-start space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                          <div className="w-16 h-16 rounded-md bg-white border border-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+                            {item.logoSrc ? (
+                              <Image src={item.logoSrc} alt={`${item.company} logo`} width={64} height={64} className="w-16 h-16 object-contain" />
+                            ) : (
+                              <div className="w-full h-full border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center text-xs text-gray-400">Logo</div>
+                            )}
+                          </div>
+                            <div className="flex-1 min-w-0">
+                              <h3 className="font-semibold text-base sm:text-lg break-words">
+                                {item.company}
+                              </h3>
+                              <p className="text-gray-600 text-sm sm:text-base">{item.title}</p>
+                            </div>
+                          <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.period}</span>
+                        </div>
+                      </div>
+                      {item.details && item.details.length > 0 && (
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                          <div className="ml-6 sm:ml-8 p-4 rounded-lg">
+                            <ul className="space-y-2">
+                              {item.details.map((detail: string, detailIndex: number) => (
+                                <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
+                                  <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
+                                  <span>{detail}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
                     </div>
-                    <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0">{item.period}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* Education */}
+            <section>
+              <h2 className="text-xl sm:text-2xl font-bold mb-6">Education</h2>
+              <div className="space-y-4">
+                {educationItems.map((item, index) => {
+                  const sectionId = `education-${index}`;
+                  const isOpen = openSections[sectionId];
+                  return (
+                    <div key={index} className="border-l-2 border-gray-200 pl-4">
+                      <div 
+                        className="cursor-pointer"
+                        onClick={() => toggleSection(sectionId)}
+                      >
+                        <div className={`flex items-start space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                          <div className="w-16 h-16 rounded-md bg-white border border-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+                            {item.logoSrc ? (
+                              <Image src={item.logoSrc} alt={`${item.institution} logo`} width={64} height={64} className="w-16 h-16 object-contain" />
+                            ) : (
+                              <div className="w-full h-full border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center text-xs text-gray-400">Logo</div>
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-semibold text-base sm:text-lg break-words">
+                              {item.degree}
+                            </h3>
+                            <p className="text-gray-600 text-sm sm:text-base">{item.institution}</p>
+                          </div>
+                          <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.period}</span>
+                        </div>
+                      </div>
+                      {item.details && item.details.length > 0 && (
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                          <div className="ml-6 sm:ml-8 p-4 rounded-lg">
+                            <ul className="space-y-2">
+                              {item.details.map((detail: string, detailIndex: number) => (
+                                <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
+                                  <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
+                                  <span>{detail}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
+
+            {/* Awards */}
+            <section>
+              <h2 className="text-xl sm:text-2xl font-bold mb-6">Awards</h2>
+              <div className="space-y-4">
+                {awardsItems.map((item, index) => {
+                  const sectionId = `awards-${index}`;
+                  const isOpen = openSections[sectionId];
+                  return (
+                    <div key={index} className="border-l-2 border-gray-200 pl-4">
+                      <div 
+                        className="cursor-pointer"
+                        onClick={() => toggleSection(sectionId)}
+                      >
+                        <div className={`flex items-start space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                          <div className="w-16 h-16 rounded-md bg-white border border-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0">
+                            {item.logoSrc ? (
+                              <Image src={item.logoSrc} alt={`${item.issuer} logo`} width={64} height={64} className="w-16 h-16 object-contain" />
+                            ) : (
+                              <div className="w-full h-full border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center text-xs text-gray-400">Logo</div>
+                            )}
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <h3 className="font-semibold text-base sm:text-lg break-words">
+                              {item.name}
+                            </h3>
+                            <p className="text-gray-600 text-sm sm:text-base">{item.issuer}</p>
+                          </div>
+                          <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.year}</span>
+                        </div>
+                      </div>
+                      {item.details && item.details.length > 0 && (
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                          <div className="ml-6 sm:ml-8 p-4 rounded-lg">
+                            <ul className="space-y-2">
+                              {item.details.map((detail: string, detailIndex: number) => (
+                                <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
+                                  <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
+                                  <span>{detail}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </section>
           </div>
         ) : (
           // Journey Timeline
           <div>
             <div className="space-y-6">
-              {journeyItems.map((item, index) => (
-                <details key={index} className="group">
-                  <summary className="cursor-pointer list-none">
-                    <div className="flex items-start space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors">
-                      <span className="text-lg sm:text-xl flex-shrink-0 mt-1">{item.emoji}</span>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="font-semibold text-base sm:text-lg text-black group-open:text-gray-600 group-hover:text-green-600 break-words">
-                          {item.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm break-words">{item.description}</p>
+              {journeyItems.map((item, index) => {
+                const sectionId = `journey-${index}`;
+                const isOpen = openSections[sectionId];
+                return (
+                  <div key={index}>
+                    <div 
+                      className="cursor-pointer"
+                      onClick={() => toggleSection(sectionId)}
+                    >
+                      <div className={`flex items-start space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                        <span className="text-lg sm:text-xl flex-shrink-0 mt-1">{item.emoji}</span>
+                        <div className="flex-1 min-w-0">
+                          <h3 className="font-semibold text-base sm:text-lg break-words">
+                            {item.title}
+                          </h3>
+                          <p className="text-gray-600 text-sm break-words">{item.description}</p>
+                        </div>
                       </div>
                     </div>
-                  </summary>
-                  <div className="mt-3 ml-6 sm:ml-8 p-4 bg-gray-50 rounded-lg">
-                    <ul className="space-y-2">
-                      {item.details.map((detail, detailIndex) => (
-                        <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
-                          <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
-                          <span dangerouslySetInnerHTML={{ __html: detail }} />
-                        </li>
-                      ))}
-                    </ul>
+                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                      <div className="ml-6 sm:ml-8 p-4 rounded-lg">
+                        <ul className="space-y-2">
+                          {item.details.map((detail, detailIndex) => (
+                            <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
+                              <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
+                              <span dangerouslySetInnerHTML={{ __html: detail }} />
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                </details>
-              ))}
+                );
+              })}
             </div>
           </div>
         )}
