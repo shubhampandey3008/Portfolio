@@ -74,15 +74,9 @@ export default function About() {
       emoji: '🎓',
       description: 'MCA from JNU | First Professional Role at Hughes Systique',
       details: [
-        'Cleared competitive entrance exams to join the prestigious Jawaharlal Nehru University',
-        'Learned from distinguished professors and developed a passion for Natural Language Processing',
-        'Created an innovative sentiment analysis project analyzing my class\'s WhatsApp group conversations',
-        'Secured internship and first job at Hughes Systique, marking the beginning of my professional journey',
-        'Became the founding member of the company\'s AI team, pioneering artificial intelligence initiatives',
-        'Led the development of the company\'s first AI Assistant, revolutionizing internal operations',
-        'Won multiple <a href="http://www.drive.com/awards" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">awards</a> for innovative product demonstrations and technical excellence',
-        'Single-handedly built an end-to-end Document Management System using Azure AI and Power Platform',
-        'Implemented advanced RAG techniques and developed robust data preprocessing pipelines'
+        'My passion for Computer Science led me to pursue the JNUEE exam for admission to JNU\'s master\'s program. NLP and Machine Learning quickly became my favorite subjects, where I particularly excelled with a <a href="https://github.com/shubhampandey3008/ChatMood" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Sentiment Analyzer</a> project that analyzed our class WhatsApp discussions, earning recognition from faculty.',
+        'Served as a coordinator for the <a href="https://www.linkedin.com/company/placementcell-scss/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Placement Cell</a>, successfully bringing numerous HR representatives on board to conduct placement drives for our batch. During this role, I also secured a Pre-Placement Offer (PPO) from <a href="https://www.linkedin.com/company/hsc/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">HSC</a>.',
+        'Joined the AI team as part of the initial group of engineers, where I developed multiple POCs focused on creating reliable products using proprietary AI models. Notable achievements include leading the development of \'Athena\', HSC\'s first internal AI chatbot.'
       ]
     },
     {
@@ -90,14 +84,9 @@ export default function About() {
       emoji: '🏛️',
       description: 'Bachelor\'s from University of Delhi | Personal & Academic Growth',
       details: [
-        'Embarked on my Computer Science journey at the prestigious University of Delhi',
-        'Actively participated in networking events, expanding my professional connections',
-        'Organized various activities and attended industry conferences, building leadership skills',
-        'Competed in hackathons, pushing the boundaries of innovation and creativity',
-        'Formed lasting friendships through vibrant hostel life and shared experiences',
-        'Achieved success in the university cricket championship, balancing academics with sports',
-        'Adapted to online learning during COVID-19, though missing the full college experience',
-        'Developed resilience and adaptability that would serve me throughout my career'
+        'Began my Computer Science studies at university, where I thrived under professors who emphasized hands-on learning. Through participating in and organizing hackathons, I discovered how complex systems are built by seamlessly integrating smaller components.',
+        'Got the opportunity to be part of the Student Council at <a href="https://www.instagram.com/sanganika_dduc/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Sanganika</a>, Successfully worked with a team to organize the annual tech fest TechMarathon. Was part of the departmental cricket team and won the inter-department cricket championship.',
+        'Adapted to online learning during the COVID-19 pandemic, diving deep into advanced subjects like Compiler Design, Cyber Security, and Data Mining. This period of remote education became an opportunity to sharpen my technical skills through intensive project work.'
       ]
     },
     {
@@ -105,13 +94,9 @@ export default function About() {
       emoji: '🏔️',
       description: 'Rooted in Kumaoni Culture | Himalayan Heritage',
       details: [
-        'Born and raised in Pithoragarh, a picturesque Himalayan town surrounded by natural beauty',
-        'Deeply rooted in rich Kumaoni traditions and cultural heritage',
-        'Grew up surrounded by the majestic mountains that instilled humility and perspective',
-        'Sports played a pivotal role in my childhood, teaching teamwork and perseverance',
-        'Raised in a humble middle-class family that emphasized values over material possessions',
-        'The mountains taught me to dream big while staying grounded in reality',
-        'This foundation shaped my worldview and approach to life\'s challenges'
+        'Born and raised in Pithoragarh, a picturesque Himalayan town surrounded by natural beauty, no fancy city life and luxuries. Dad being in the army lived away from family most of his career.',
+        'Completed my schooling at <a href="https://bcjaps.net.in/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Army Public School</a>, which instilled discipline and a strong work ethic. I developed a passion for sports and outdoor activities, while the school environment helped me build confidence in public speaking and stage presence. I actively participated in various sports events and took on lead roles in Annual Day functions.',
+        'Passed with top grade in class 10th and 12th board exams. Still unsure what to pursue after schooling, was confident that I would end up doing something good, if not great, in life.',
       ]
     }
   ];
@@ -482,7 +467,7 @@ export default function About() {
                           {item.details.map((detail, detailIndex) => (
                             <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
                               <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
-                              <span dangerouslySetInnerHTML={{ __html: detail }} />
+                              <span dangerouslySetInnerHTML={{ __html: detail }} style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }} />
                             </li>
                           ))}
                         </ul>
