@@ -46,7 +46,7 @@ export default function About() {
   const [openSections, setOpenSections] = useState<{[key: string]: boolean}>({});
   const resumeRef = useRef(null);
   const whoAmIRef = useRef(null);
-  const currentAnnotation = useRef<any>(null);
+  const currentAnnotation = useRef<{ show: () => void; hide: () => void } | null>(null);
 
   const toggleSection = (sectionId: string) => {
     setOpenSections(prev => ({

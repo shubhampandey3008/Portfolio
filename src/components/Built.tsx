@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Built() {
   type Project = {
     emoji: string;
@@ -45,7 +47,7 @@ export default function Built() {
     <div className="max-w-4xl mx-auto">
       <div className="mb-6 sm:mb-8">
         <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-          Building software make me feel like I can solve any problem I want. It's empowering. I'm driven by the 
+          Building software make me feel like I can solve any problem I want. It&apos;s empowering. I&apos;m driven by the 
           potential impact of what I create: how many people will benefit, how useful is it, or how much revenue it can generate. I 
           love spending my nights and weekends tinkering, and these are some of my favorite creations:
         </p>
@@ -63,9 +65,11 @@ export default function Built() {
                 {/* Project Image */}
                 <div className="flex-shrink-0 w-full md:w-80 lg:w-96">
                   <div className="relative aspect-video rounded-lg overflow-hidden bg-gray-100 border-2 border-gray-200 group-hover:border-gray-300 transition-colors">
-                    <img
+                    <Image
                       src={project.image}
                       alt={`${project.title} screenshot`}
+                      width={400}
+                      height={225}
                       className="w-full h-full object-cover object-center"
                     />
                   </div>

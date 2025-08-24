@@ -25,7 +25,7 @@ export default function Written() {
       link: 'https://substack.com/post/duolok-journey'
     },
     {
-      title: 'explaining gpt-4\'s secret sauce: transformers',
+      title: 'explaining gpt-4&apos;s secret sauce: transformers',
       subtitle: '',
       year: '2023',
       link: 'https://substack.com/post/transformers-explained'
@@ -50,7 +50,7 @@ export default function Written() {
     },
     {
       title: 'if you have a 7-second memory span, to what degree are you a person?',
-      subtitle: 'applying Locke\'s view on personhood to Clive Wearing - the most amnesiac person in the world',
+      subtitle: 'applying Locke&apos;s view on personhood to Clive Wearing - the most amnesiac person in the world',
       year: '2020',
       link: 'https://substack.com/post/memory-personhood'
     }
@@ -60,11 +60,11 @@ export default function Written() {
     <div className="max-w-4xl mx-auto">
       <div className="mb-6 sm:mb-8">
         <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
-          Rhetoric has always been part of my life, just in different forms. Back in high school, I'd spend 
+          Rhetoric has always been part of my life, just in different forms. Back in high school, I&apos;d spend 
           weeknights buried in STEM homework, and then weekends at debate tournaments. In college, when my brain was fried 
-          from debugging, I'd unwind with Nick Bostrom - and sometimes Kant if I was feeling particularly masochistic. These days, 
-          writing helps me untangle the mess of thoughts in my head and share what I'm learning. I write to solidify my ideas, and 
-          also to hopefully help others along the way. Here's some of that mess put to paper:
+          from debugging, I&apos;d unwind with Nick Bostrom - and sometimes Kant if I was feeling particularly masochistic. These days, 
+          writing helps me untangle the mess of thoughts in my head and share what I&apos;m learning. I write to solidify my ideas, and 
+          also to hopefully help others along the way. Here&apos;s some of that mess put to paper:
         </p>
       </div>
 
