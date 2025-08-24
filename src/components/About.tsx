@@ -29,6 +29,18 @@ const SubstackIcon = () => (
   </svg>
 );
 
+const LeetCodeIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M13.483 0a1.374 1.374 0 00-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 00-1.209 2.104 5.35 5.35 0 00-.125.513 5.527 5.527 0 00.062 2.362 5.83 5.83 0 00.349 1.017 5.938 5.938 0 001.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 00-1.951-.003l-2.396 2.392a3.021 3.021 0 01-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 01.066-.523 2.545 2.545 0 01.619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 00-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0013.483 0z"/>
+  </svg>
+);
+
+const CodeforcesIcon = () => (
+  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M4.5 7.5A1.5 1.5 0 016 9v10.5A1.5 1.5 0 014.5 21h-3A1.5 1.5 0 010 19.5V9a1.5 1.5 0 011.5-1.5h3zm6-3A1.5 1.5 0 0112 6v13.5a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 016 19.5V6a1.5 1.5 0 011.5-1.5h3zm6-3A1.5 1.5 0 0118 3v16.5a1.5 1.5 0 01-1.5 1.5h-3A1.5 1.5 0 0112 19.5V3a1.5 1.5 0 011.5-1.5h3z"/>
+  </svg>
+);
+
 export default function About() {
   const [showProfessional, setShowProfessional] = useState(false);
   const [openSections, setOpenSections] = useState<{[key: string]: boolean}>({});
@@ -49,11 +61,8 @@ export default function About() {
       emoji: '📍',
       description: 'Software Engineer at Ciena | AI Enthusiast | Tech Writer',
       details: [
-        'Transitioned to Ciena as a Python Developer, focusing on Resource Adapters for leading global networking firms',
-        'Developing scalable solutions that power critical network infrastructure worldwide',
-        'Actively staying at the forefront of AI developments and emerging technologies',
-        'Sharing insights and learnings through technical writing and community engagement',
-        'Building AI-powered solutions while maintaining a keen eye on industry trends'
+        'After 2 years of valuable learning and growth at HSC, I transitioned to <a href="https://www.linkedin.com/company/ciena/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Ciena</a> as a Software Developer.',
+        'Currently developing scalable network orchestration solutions at Ciena, while mastering various system design and optimization techniques. On a personal level, I stay current with AI developments through hands-on projects and actively engage with the tech community across various platforms.' 
       ]
     },
     {
@@ -61,12 +70,7 @@ export default function About() {
       emoji: '❤️',
       description: 'Founding Member at Kritansh School of Hope',
       details: [
-        'What began as a 3-month internship evolved into a life-changing journey at <a href="https://www.instagram.com/kritanshschoolofhope/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Kritansh School of Hope</a>',
-        'Dedicated weekends to teaching underprivileged children, making education accessible and engaging',
-        'Organized and led donation drives that positively impacted over 250 children across the city',
-        'Built lifelong friendships and discovered the joy of giving back to the community',
-        'Embarked on meaningful trips across the country, creating memories while serving others',
-        'Found my second family at Kritansh, where compassion meets action'
+        'Joined <a href="https://www.instagram.com/kritanshschoolofhope/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Kritansh School of Hope</a> in 2023, an organization dedicated to providing education to underprivileged children in Delhi\'s slum communities. Actively participated in educational workshops and fundraising drives to support the cause.'
       ]
     },
     {
@@ -109,9 +113,8 @@ export default function About() {
       description: 'Python Developer working on Resource Adapters powering global network infrastructure',
       logoSrc: '/ciena.png', // replace with your company logo in `public/`
       details: [
-        'Designing and building robust Resource Adapters used by large networking firms',
-        'Improving reliability and maintainability of critical backend services',
-        'Collaborating cross-functionally to deliver production-grade features'
+        'Currently building Resource Adapters that enable major networking companies to efficiently manage their OSS (Operations Support Systems) suites.',
+        'Developed a Generative AI-powered code generator that reduces development effort by approximately 25% when creating new Resource Adapters.'
       ]
     },
     {
@@ -121,9 +124,13 @@ export default function About() {
       description: 'Founding member of internal AI team; shipped company-wide AI Assistant',
       logoSrc: '/Hughes-Systique.png', // replace with your company logo in `public/`
       details: [
-        'Built an end-to-end Document Management System using Azure AI + Power Platform',
-        'Implemented RAG pipelines, data preprocessing, and robust evaluation suites',
-        'Won multiple awards for live product demos and engineering excellence'
+        'ML Document Pipeline: Engineered automated processing system using Power Automate and Python, extracting 10,000+ monthly vendor documents with 95% accuracy, reducing processing time from 4 hours to 30 minutes',
+        'Data Architecture Design: Architected serverless pipeline using GCP Cloud Run and BigQuery, processing 100+ vendors’ records and fault data daily, enabling real-time analytics',
+        'SSO Access Control: Implemented OKTA SSO authentication using OAuth 2.0 for DMS, securing vendor document access and processing for external partners with zero security incidents',
+        'AI Assistant: Developed full-stack AI assistant using NextJS and FastAPI, driving 50%+ adoption across 1000+ employees with a data-driven dashboard for usage analytics and continuous feature deployment',
+        'Backend Infrastructure: Architected high-performance FastAPI backend with robust exception handling, reducing response time by 50%, utilizing MySQL and Weaviate, and containerizing with Docker for scalable deployment.',
+        'Langchain Framework: Engineered custom functionality by overriding framework entity classes, implementing an advanced Reranker Model for document embeddings that significantly enhanced search accuracy by 80%.',
+        'Testing & Deployment: Prepared comprehensive test strategy for LLM-powered chatbot, leveraging GPT-4 to automate 80% of manual testing, and implemented CI/CD workflows using JIRA to enhance quality assurance and development efficiency. Used Docker for Continuous deployment to production server'
       ]
     },
     {
@@ -133,9 +140,7 @@ export default function About() {
       description: 'Founding member of internal AI team; shipped company-wide AI Assistant',
       logoSrc: '/Hughes-Systique.png', // replace with your company logo in `public/`
       details: [
-        'Built an end-to-end Document Management System using Azure AI + Power Platform',
-        'Implemented RAG pipelines, data preprocessing, and robust evaluation suites',
-        'Won multiple awards for live product demos and engineering excellence'
+        'Developed a Customer Support Assistant prototype for a leading cruise line company. The solution involved web scraping using Selenium and Beautiful Soup to gather data and documents, which powered a RAG-based AI assistant. Enhanced the system with guardrails and semantic analysis to ensure reliable, contextually accurate responses.'
       ]
     }
   ];
@@ -144,21 +149,19 @@ export default function About() {
     {
       degree: 'MCA — Master of Computer Applications',
       institution: 'Jawaharlal Nehru University (JNU)',
-      period: '2020 - 2022',
+      period: '2021 - 2023',
       logoSrc: '/jnu.png', // replace with your university logo in `public/`
       details: [
-        'Focused on NLP; built a WhatsApp sentiment analysis project',
-        'Secured internship and first role via campus placement'
+        'CGPA: 8.47/10'
       ]
     },
     {
       degree: "Bachelor's — Computer Science",
       institution: 'University of Delhi',
-      period: '2017 - 2020',
+      period: '2018 - 2021',
       logoSrc: '/DU.png', // replace with your university logo in `public/`
       details: [
-        'Active in clubs, hackathons, and community initiatives',
-        'Balanced academics with sports and leadership activities'
+        'CGPA: 8.4/10'
       ]
     }
   ];
@@ -182,6 +185,21 @@ export default function About() {
     if (currentAnnotation.current) {
       currentAnnotation.current.hide();
       currentAnnotation.current = null;
+    }
+
+    // Set default expanded sections based on toggle state
+    if (showProfessional) {
+      // Resume view - expand first professional item (Ciena)
+      setOpenSections(prev => ({
+        ...prev,
+        'professional-0': true
+      }));
+    } else {
+      // Journey view - expand first journey item (Now)
+      setOpenSections(prev => ({
+        ...prev,
+        'journey-0': true
+      }));
     }
 
     // Add new annotation based on current state
@@ -241,6 +259,16 @@ export default function About() {
                className="text-gray-600 hover:text-gray-900 transition-colors p-2 rounded-full hover:bg-gray-100"
                title="GitHub">
               <GitHubIcon />
+            </a>
+            <a href="https://leetcode.com/u/Pandey_ji_3007/" target="_blank" rel="noopener noreferrer" 
+               className="text-gray-600 hover:text-yellow-600 transition-colors p-2 rounded-full hover:bg-gray-100"
+               title="LeetCode">
+              <LeetCodeIcon />
+            </a>
+            <a href="https://codeforces.com/profile/just_shubham" target="_blank" rel="noopener noreferrer" 
+               className="text-gray-600 hover:text-blue-500 transition-colors p-2 rounded-full hover:bg-gray-100"
+               title="Codeforces">
+              <CodeforcesIcon />
             </a>
             <a href="https://substack.com" target="_blank" rel="noopener noreferrer" 
                className="text-gray-600 hover:text-orange-600 transition-colors p-2 rounded-full hover:bg-gray-100"
@@ -316,16 +344,19 @@ export default function About() {
                               <p className="text-gray-600 text-sm sm:text-base">{item.title}</p>
                             </div>
                           <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.period}</span>
+                          <span className={`text-lg flex-shrink-0 ml-2 transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                            {isOpen ? '↑' : '→'}
+                          </span>
                         </div>
                       </div>
                       {item.details && item.details.length > 0 && (
-                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-none mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
                           <div className="ml-6 sm:ml-8 p-4 rounded-lg">
                             <ul className="space-y-2">
                               {item.details.map((detail: string, detailIndex: number) => (
                                 <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
                                   <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
-                                  <span>{detail}</span>
+                                  <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }}>{detail}</span>
                                 </li>
                               ))}
                             </ul>
@@ -366,16 +397,19 @@ export default function About() {
                             <p className="text-gray-600 text-sm sm:text-base">{item.institution}</p>
                           </div>
                           <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.period}</span>
+                          <span className={`text-lg flex-shrink-0 ml-2 transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                            {isOpen ? '↑' : '→'}
+                          </span>
                         </div>
                       </div>
                       {item.details && item.details.length > 0 && (
-                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-none mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
                           <div className="ml-6 sm:ml-8 p-4 rounded-lg">
                             <ul className="space-y-2">
                               {item.details.map((detail: string, detailIndex: number) => (
                                 <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
                                   <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
-                                  <span>{detail}</span>
+                                  <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }}>{detail}</span>
                                 </li>
                               ))}
                             </ul>
@@ -416,16 +450,19 @@ export default function About() {
                             <p className="text-gray-600 text-sm sm:text-base">{item.issuer}</p>
                           </div>
                           <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.year}</span>
+                          <span className={`text-lg flex-shrink-0 ml-2 transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                            {isOpen ? '↑' : '→'}
+                          </span>
                         </div>
                       </div>
                       {item.details && item.details.length > 0 && (
-                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-none mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
                           <div className="ml-6 sm:ml-8 p-4 rounded-lg">
                             <ul className="space-y-2">
                               {item.details.map((detail: string, detailIndex: number) => (
                                 <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
                                   <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
-                                  <span>{detail}</span>
+                                  <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }}>{detail}</span>
                                 </li>
                               ))}
                             </ul>
@@ -459,9 +496,12 @@ export default function About() {
                           </h3>
                           <p className="text-gray-600 text-sm break-words">{item.description}</p>
                         </div>
+                        <span className={`text-lg flex-shrink-0 ml-2 transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
+                          {isOpen ? '↑' : '→'}
+                        </span>
                       </div>
                     </div>
-                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-96 mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
+                    <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-none mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
                       <div className="ml-6 sm:ml-8 p-4 rounded-lg">
                         <ul className="space-y-2">
                           {item.details.map((detail, detailIndex) => (
