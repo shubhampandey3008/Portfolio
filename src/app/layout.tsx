@@ -15,7 +15,7 @@ const gloriaHallelujah = Gloria_Hallelujah({
 });
 
 export const metadata: Metadata = {
-  title: "Janvi Kalra - Portfolio",
+  title: "Shubham Pandey",
   description: "Engineer by passion, debater by nature, struggling writer by choice",
 };
 
