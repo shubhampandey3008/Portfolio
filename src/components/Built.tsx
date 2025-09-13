@@ -38,6 +38,7 @@ export default function Built() {
       emoji: '',
       title: 'RecruitIQ — Smart Recruiting Solution',
       description: 'RecruitIQ is a comprehensive recruitment solution that transforms chaotic, unstructured candidate data into actionable hiring intelligence. The application ingests vast amounts of disorganized candidate information—including resumes, contact details, work histories, educational backgrounds, and skill sets—and processes this data through intelligent parsing and standardization algorithms.',
+      link: 'https://www.loom.com/share/40cca2f037734d888041ae551b135ac9',
       github: 'https://github.com/shubhampandey3008/RecruitIQ',
       image: '/RecruitIQ1.png' // Replace with actual project screenshot
     },
