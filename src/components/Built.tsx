@@ -36,6 +36,13 @@ export default function Built() {
     },
     {
       emoji: '',
+      title: 'RecruitIQ — Smart Recruiting Solution',
+      description: 'RecruitIQ is a comprehensive recruitment solution that transforms chaotic, unstructured candidate data into actionable hiring intelligence. The application ingests vast amounts of disorganized candidate information—including resumes, contact details, work histories, educational backgrounds, and skill sets—and processes this data through intelligent parsing and standardization algorithms.',
+      github: 'https://github.com/shubhampandey3008/RecruitIQ',
+      image: '/RecruitIQ1.png' // Replace with actual project screenshot
+    },
+    {
+      emoji: '',
       title: 'ChatMood — Sentiment Analysis using LLMs',
       description: 'This is an application that analyze the sentiments of individuals and the group as a whole after processing the WhatsApp group chats or one to one chats. It gives score from 0 to 1 with 0 being a negative sentiment score and 1 being a positive sentiment score.',
       github: 'https://github.com/shubhampandey3008/ChatMood',
@@ -46,7 +53,7 @@ export default function Built() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-6 sm:mb-8">
-        <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+        <p className="text-gray-700 text-base sm:text-lg leading-relaxed" style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }}>
           Building software make me feel like I can solve any problem I want. It&apos;s empowering. I&apos;m driven by the 
           potential impact of what I create: how many people will benefit, how useful is it, or how much revenue it can generate. I 
           love spending my nights and weekends tinkering, and these are some of my favorite creations:
@@ -139,7 +146,7 @@ export default function Built() {
                           )}
                         </div>
                       </div>
-                      <p className="text-gray-600 leading-relaxed text-sm sm:text-base break-words">
+                      <p className="text-gray-600 leading-relaxed text-sm sm:text-base break-words" style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }}>
                         {project.description}
                       </p>
                     </div>

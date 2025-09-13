@@ -66,9 +66,9 @@ export default function About() {
       ]
     },
     {
-      title: 'Joined an NGO as a founding member which became my second home',
+      title: 'Joined an NGO which became my second home',
       emoji: '❤️',
-      description: 'Founding Member at Kritansh School of Hope',
+      description: 'Volunteer at Kritansh School of Hope',
       details: [
         'Joined <a href="https://www.instagram.com/kritanshschoolofhope/" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">Kritansh School of Hope</a> in 2023, an organization dedicated to providing education to underprivileged children in Delhi\'s slum communities. Actively participated in educational workshops and fundraising drives to support the cause.'
       ]
@@ -162,19 +162,6 @@ export default function About() {
       logoSrc: '/DU.png', // replace with your university logo in `public/`
       details: [
         'CGPA: 8.4/10'
-      ]
-    }
-  ];
-
-  const awardsItems = [
-    {
-      name: 'Innovation Award',
-      issuer: 'Hughes Systique',
-      year: '2023',
-      logoSrc: '/file.svg', // replace with award/issuer mark in `public/`
-      details: [
-        'Recognized for building the first internal AI Assistant and live demos',
-        'Awarded for technical excellence and business impact'
       ]
     }
   ];
@@ -397,59 +384,6 @@ export default function About() {
                             <p className="text-gray-600 text-sm sm:text-base">{item.institution}</p>
                           </div>
                           <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.period}</span>
-                          <span className={`text-lg flex-shrink-0 ml-2 transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
-                            {isOpen ? '↑' : '→'}
-                          </span>
-                        </div>
-                      </div>
-                      {item.details && item.details.length > 0 && (
-                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 max-h-none mt-3' : 'opacity-0 max-h-0 mt-0'}`}>
-                          <div className="ml-6 sm:ml-8 p-4 rounded-lg">
-                            <ul className="space-y-2">
-                              {item.details.map((detail: string, detailIndex: number) => (
-                                <li key={detailIndex} className="text-gray-700 text-sm sm:text-base flex items-start">
-                                  <span className="text-orange-600 mr-2 mt-1 flex-shrink-0">•</span>
-                                  <span style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }}>{detail}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </section>
-
-            {/* Awards */}
-            <section>
-              <h2 className="text-xl sm:text-2xl font-bold mb-6">Awards</h2>
-              <div className="space-y-4">
-                {awardsItems.map((item, index) => {
-                  const sectionId = `awards-${index}`;
-                  const isOpen = openSections[sectionId];
-                  return (
-                    <div key={index} className="border-l-2 border-gray-200 pl-4">
-                      <div 
-                        className="cursor-pointer"
-                        onClick={() => toggleSection(sectionId)}
-                      >
-                        <div className={`flex items-start space-x-3 hover:bg-gray-50 p-3 rounded-lg transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
-                          <div className="w-16 h-16 rounded-md bg-white border border-gray-200 flex items-center justify-center overflow-hidden flex-shrink-0">
-                            {item.logoSrc ? (
-                              <Image src={item.logoSrc} alt={`${item.issuer} logo`} width={64} height={64} className="w-16 h-16 object-contain" />
-                            ) : (
-                              <div className="w-full h-full border-2 border-dashed border-gray-300 rounded-md flex items-center justify-center text-xs text-gray-400">Logo</div>
-                            )}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            <h3 className="font-semibold text-base sm:text-lg break-words">
-                              {item.name}
-                            </h3>
-                            <p className="text-gray-600 text-sm sm:text-base">{item.issuer}</p>
-                          </div>
-                          <span className="text-sm text-gray-500 sm:ml-4 flex-shrink-0 mt-1">{item.year}</span>
                           <span className={`text-lg flex-shrink-0 ml-2 transition-colors ${isOpen ? 'text-gray-600' : 'text-black hover:text-green-600'}`}>
                             {isOpen ? '↑' : '→'}
                           </span>

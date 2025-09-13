@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Sidebar from '@/components/Sidebar';
 import About from '@/components/About';
 import Built from '@/components/Built';
+import Skills from '@/components/Skills';
 import DSA from '@/components/DSA';
 import Written from '@/components/Written';
 
@@ -17,6 +18,8 @@ export default function Home() {
         return <About />;
       case 'built':
         return <Built />;
+      case 'skills':
+        return <Skills />;
       case 'dsa':
         return <DSA />;
       case 'written':

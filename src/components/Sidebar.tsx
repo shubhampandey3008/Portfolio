@@ -14,6 +14,7 @@ export default function Sidebar({
   const menuItems = [
     { id: 'about', label: 'about', emoji: '👤' },
     { id: 'built', label: 'built', emoji: '🛠️' },
+    { id: 'skills', label: 'skills', emoji: '🎯' },
     // { id: 'dsa', label: 'dsa', emoji: '💻' },
     // { id: 'written', label: 'written', emoji: '✍️' },
   ];
