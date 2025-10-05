@@ -41,6 +41,12 @@ const CodeforcesIcon = () => (
   </svg>
 );
 
+const EmailIcon = () => (
+  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+  </svg>
+);
+
 export default function About() {
   const [showProfessional, setShowProfessional] = useState(false);
   const [openSections, setOpenSections] = useState<{[key: string]: boolean}>({});
@@ -114,7 +120,8 @@ export default function About() {
       logoSrc: '/ciena.png', // replace with your company logo in `public/`
       details: [
         'Currently building Resource Adapters that enable major networking companies to efficiently manage their OSS (Operations Support Systems) suites.',
-        'Developed a Generative AI-powered code generator that reduces development effort by approximately 25% when creating new Resource Adapters.'
+        'Architected and implemented an end-to-end Resource Adapter that interfaces with customer devices via CLI, transforming raw responses into structured resource models aligned with Ciena BluePlanet Orchestrate specifications. Streamlined resource provisioning workflows through robust object-oriented design patterns, ensuring scalability and maintainability. Delivered high code quality through comprehensive unit test coverage and leveraged AI-assisted development tools to accelerate delivery timelines by 30%.',
+        'Designed and implemented a logical inventory system with Forwarding Relationship Encapsulation (FRE) to accurately map physical and logical Terminating Point Encapsulations (TPEs). Extended orchestration capabilities through precise relationship modeling, enabling streamlined management of complex network topologies using object-oriented design principles.'
       ]
     },
     {
@@ -228,7 +235,11 @@ export default function About() {
         
         <div className="flex-1 text-center sm:text-left">
           <h1 className="text-2xl sm:text-3xl font-bold text-black mb-2">Shubham Pandey</h1>
-          <p className="text-gray-600 mb-4 text-sm sm:text-base">Software Engineer exploring AI frontiers | New to tech blogging but eager to share insights | Always learning, always connecting</p>
+          <p className="text-gray-600 mb-2 text-sm sm:text-base">Software Engineer exploring AI frontiers | New to tech blogging but eager to share insights | Always learning, always connecting</p>
+          <a href="mailto:shubham.pandey.workconnect@gmail.com" 
+             className="text-gray-600 hover:text-red-600 transition-colors text-sm underline block mb-4">
+            shubham.pandey.workconnect@gmail.com
+          </a>
           
           {/* Social Links with SVG Icons */}
           <div className="flex justify-center sm:justify-start gap-4">
@@ -257,7 +268,7 @@ export default function About() {
                title="Codeforces">
               <CodeforcesIcon />
             </a>
-            <a href="https://substack.com" target="_blank" rel="noopener noreferrer" 
+            <a href="https://substack.com/@techbyshubham" target="_blank" rel="noopener noreferrer" 
                className="text-gray-600 hover:text-orange-600 transition-colors p-2 rounded-full hover:bg-gray-100"
                title="Substack">
               <SubstackIcon />
@@ -305,7 +316,22 @@ export default function About() {
           <div className="space-y-10">
             {/* Professional Experience */}
             <section>
-              <h2 className="text-xl sm:text-2xl font-bold mb-6">Professional Experience</h2>
+              <div className="flex justify-between items-center mb-6">
+                <h2 className="text-xl sm:text-2xl font-bold">Professional Experience</h2>
+                <a 
+                  href="/shubham_pandey.pdf" 
+                  download="Shubham_Pandey_Resume.pdf"
+                  className="relative group"
+                >
+                  <div className="absolute -inset-1 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 rounded-lg blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-xy"></div>
+                  <button className="relative px-4 py-2 bg-gray-200 text-gray-800 rounded-lg font-semibold text-sm flex items-center space-x-2 hover:bg-gray-300 transition-all">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span>Resume</span>
+                  </button>
+                </a>
+              </div>
               <div className="space-y-4">
                 {professionalItems.map((item, index) => {
                   const sectionId = `professional-${index}`;
