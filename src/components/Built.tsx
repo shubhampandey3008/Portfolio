@@ -54,10 +54,8 @@ export default function Built() {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-6 sm:mb-8">
-        <p className="text-gray-700 text-base sm:text-lg leading-relaxed" style={{ fontFamily: 'Arial, Helvetica, sans-serif', fontSize: '15px' }}>
-          Building software make me feel like I can solve any problem I want. It&apos;s empowering. I&apos;m driven by the 
-          potential impact of what I create: how many people will benefit, how useful is it, or how much revenue it can generate. I 
-          love spending my nights and weekends tinkering, and these are some of my favorite creations:
+        <p className="text-black text-lg sm:text-xl leading-relaxed font-handwritten">
+        Learning by building real-world solutions has been central to my growth as a developer. The following projects reflect my approach to identifying problems and turning ideas into practical, working systems:
         </p>
       </div>
 

@@ -48,7 +48,7 @@ const EmailIcon = () => (
 );
 
 export default function About() {
-  const [showProfessional, setShowProfessional] = useState(false);
+  const [showProfessional, setShowProfessional] = useState(true);
   const [openSections, setOpenSections] = useState<{[key: string]: boolean}>({});
   const resumeRef = useRef(null);
   const whoAmIRef = useRef(null);
