@@ -125,6 +125,18 @@ export default function About() {
       ]
     },
     {
+      title: 'Software Engineer (Contractor)',
+      company: 'Mercor',
+      period: 'Apr 2025 - Oct 2025',
+      description: 'Infrastructure automation and evaluation engineering for a leading AI research lab',
+      logoSrc: '/mercor.webp',
+      details: [
+        'Standardized Infrastructure: Automated the containerization and environment parity of 50+ high-traffic Python repositories using Docker, facilitating high-fidelity data acquisition and reproducibility for a leading AI research lab.',
+        'Evaluation Engineering: Architected atomic rubrics for complex System Design problems, establishing a rigorous benchmarking framework used to evaluate the architectural reasoning of AI models.',
+        'Technical Leadership: Directed rigorous peer code reviews focused on algorithmic efficiency and edge-case detection, maintaining production-grade code quality across distributed codebases.'
+      ]
+    },
+    {
       title: 'Associate Software Engineer - AI Team',
       company: 'Hughes Systique',
       period: 'July 2023 - Feb 2025',
